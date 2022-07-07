@@ -19,7 +19,6 @@ const TracksInfos = ({ tracks }) => {
   return (
     <div className={styles.tracksInfos}>
       {Object.values(tracks).map(track => {
-        console.log(track, 'track');
         const {
           modulation,
           mask,
@@ -29,6 +28,7 @@ const TracksInfos = ({ tracks }) => {
           index,
           slider_value: sliderValue,
           slider_max_enabled: sliderMaxEnabled,
+          time_scale: timeScale,
           is_on_group1,
           is_on_group2,
           is_on_group3
@@ -47,6 +47,7 @@ const TracksInfos = ({ tracks }) => {
             strobe={strobe}
             sliderValue={sliderValue}
             sliderMaxEnabled={sliderMaxEnabled}
+            timeScale={timeScale}
             groups={groups}
         />);
       })}

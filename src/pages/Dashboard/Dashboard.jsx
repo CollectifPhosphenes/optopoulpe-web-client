@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from './actions';
-import TracksInfos from "./TracksInfos";
+import TracksInfos from './TracksInfos';
+import GlobalInfos from './GlobalInfos';
 
 const useStyles = makeStyles({
   dashboard: {
@@ -17,14 +18,18 @@ const Dashboard = () => {
 
   const global = useSelector(state => state.global);
   const tracks = useSelector(state => state.tracks);
+  const url = useSelector(state => state.app.url);
 
   useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch, fetchData]);
+    if (url) {
+      setInterval(() => dispatch(fetchData()), 1000);
+    }
+  }, [dispatch, fetchData, url]);
 
   return (
     <div className={styles.dashboard}>
       <TracksInfos tracks={tracks} />
+      <GlobalInfos />
     </div>
   );
 }

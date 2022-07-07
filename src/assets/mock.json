@@ -348,6 +348,7 @@
     },
     "current_selected_track_index": 3,
     "kill_all_tracks_enabled": false,
-    "bpm": 137.6
+    "bpm": 137.6,
+    "strobe_speed": 120
   }
 }
