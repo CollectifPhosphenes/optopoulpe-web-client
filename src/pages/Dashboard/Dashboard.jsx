@@ -39,10 +39,8 @@ const useStyles = makeStyles({
   },
   colorPaletteContainer: {
     marginLeft: '4px',
-    marginBottom: '10px',
-    flexGrow: 1,
-    alignSelf: 'flex-end',
-    height: '300px'
+    marginBottom: '8px',
+    flexGrow: 1
   }
 });
 
@@ -63,11 +61,15 @@ const Dashboard = () => {
     }
   }, [dispatch, fetchData, url]);
 
+  const modulations = tracks ?
+    Object.values(tracks).reduce((prev, current) => [...prev, current.modulation], []):
+    [];
+
   return (
     <div className={styles.dashboard}>
       {(url && !!Object.values(tracks).length) && (
         <>
-          <TracksInfos tracks={tracks} />
+          <TracksInfos activeTrack={currentTrack} tracks={tracks} />
           <GlobalInfos activeTrack={tracks[currentTrack]} bpm={bpm} />
           <div className={styles.dashboardRight}>
             <div className={styles.dashboardRightUpper}>
@@ -76,7 +78,7 @@ const Dashboard = () => {
                 <StrobeSlider value={strobeSpeed}/>
               </div>
               <div className={styles.colorPaletteContainer}>
-                <ColorPalette />
+                <ColorPalette activeTrackIndex={currentTrack} modulations={modulations} />
               </div>
             </div>
             <ActionsLogs />

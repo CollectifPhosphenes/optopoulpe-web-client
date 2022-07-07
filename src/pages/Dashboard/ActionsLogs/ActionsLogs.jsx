@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     height: '200px',
     border: '1px solid white',
     marginBottom: '8px',
-    padding: '8px'
+    padding: '4px'
   }
 });
 

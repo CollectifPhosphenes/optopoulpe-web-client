@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TracksInfos = ({ tracks }) => {
+const TracksInfos = ({ activeTrack, tracks }) => {
   const styles = useStyles();
 
   return (
@@ -40,6 +40,7 @@ const TracksInfos = ({ tracks }) => {
           <TrackBlock
             key={`track-${index}`}
             index={index}
+            isActive={activeTrack === index}
             modulation={modulation}
             mask={mask}
             slicer={slicer}
