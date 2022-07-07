@@ -75,94 +75,57 @@ const TrackBlock = ({
       <div className={styles.upperBlock}>
         {/* Modulation Row */}
         <div>
-          <ToggleButton
-            children={modulation.label}
-            isToggled={modulation.enabled}
-          />
-          <ToggleButton
-            children={OSCILLATORS[modulation.oscillator_track]}
-            isToggled={modulation.enabled}
-          />
-          <ToggleButton
-            children={
-              <p className={styles.values}>
-                <span className={styles.label}>Offset:</span> {modulation.color_palette.offset}
-              </p>
-            }
-            isToggled={modulation.enabled}
-          />
-          <ToggleButton
-            children={
+          <ToggleButton isToggled={modulation.enabled}>{modulation.label}</ToggleButton>
+          <ToggleButton isToggled={modulation.enabled}>{OSCILLATORS[modulation.oscillator_track]}</ToggleButton>
+          <ToggleButton isToggled={modulation.enabled}>
+            <p className={styles.values}>
+              <span className={styles.label}>Offset:</span> {modulation.color_palette.offset}
+            </p>
+          </ToggleButton>
+          <ToggleButton isToggled={modulation.enabled}>
             <p className={styles.values}>
               <span className={styles.label}>Width:</span> {modulation.color_palette.width}
             </p>
-            }
-            isToggled={modulation.enabled}
-          />
+          </ToggleButton>
         </div>
         {/* Mask Row */}
         <div>
-          <ToggleButton
-            children={mask.label}
-            isToggled={mask.enabled}
-          />
-          <ToggleButton
-            children={OSCILLATORS[mask.oscillator_track]}
-            isToggled={mask.enabled}
-          />
-          <ToggleButton
-            children={
-              <p className={styles.values}>
-                <span className={styles.label}>Length:</span> {mask.length}
-              </p>
-            }
-            isToggled={mask.enabled}
-          />
+          <ToggleButton isToggled={mask.enabled}>{mask.label}</ToggleButton>
+          <ToggleButton isToggled={mask.enabled}>{OSCILLATORS[mask.oscillator_track]}</ToggleButton>
+          <ToggleButton isToggled={mask.enabled}>
+            <p className={styles.values}>
+              <span className={styles.label}>Length:</span> {mask.length}
+            </p>
+          </ToggleButton>
         </div>
         {/* Slicer Row */}
         <div>
-          <ToggleButton
-            children={slicer.label}
-            isToggled={slicer.enabled}
-          />
-          <ToggleButton
-            children={
-              <p className={styles.values}>
-                <span className={styles.label}>Count:<br/></span> {slicer.slices_value}
-              </p>
-            }
-            isToggled={slicer.enabled}
-          />
-          <ToggleButton
-            children={
-              <p className={styles.values}>
-                <span className={styles.label}>Length:</span> {slicer.uneven_value}
-              </p>
-            }
-            isToggled={slicer.enabled}
-          />
+          <ToggleButton isToggled={slicer.enabled}>{slicer.label}</ToggleButton>
+          <ToggleButton isToggled={slicer.enabled}>
+            <p className={styles.values}>
+              <span className={styles.label}>Count:<br/></span> {slicer.slices_value}
+            </p>
+          </ToggleButton>
+          <ToggleButton isToggled={slicer.enabled}>
+            <p className={styles.values}>
+              <span className={styles.label}>Length:</span> {slicer.uneven_value}
+            </p>
+          </ToggleButton>
         </div>
         {/* Feedback Row */}
         <div>
-          <ToggleButton
-            children={feedback.label}
-            isToggled={feedback.enabled}
-          />
-          <ToggleButton
-            children={
-              <p className={styles.values}>
-                <span className={styles.label}>Amount:</span> {feedback.value}
-              </p>
-            }
-            isToggled={feedback.enabled}
-          />
+          <ToggleButton isToggled={feedback.enabled}>{feedback.label}</ToggleButton>
+          <ToggleButton isToggled={feedback.enabled}>
+            <p className={styles.values}>
+              <span className={styles.label}>Amount:</span> {feedback.value}
+            </p>
+          </ToggleButton>
         </div>
         {/* Strobe Row */}
         <div>
-          <ToggleButton
-            children={strobe.label}
-            isToggled={strobe.enabled}
-          />
+          <ToggleButton isToggled={strobe.enabled}>
+            {strobe.label}
+          </ToggleButton>
         </div>
       </div>
       <div className={styles.lowerBlock}>

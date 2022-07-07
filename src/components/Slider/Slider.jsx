@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Slider = ({ value, valueLabel }) => {
+const Slider = ({ value, valueLabel, min, max }) => {
   const styles = useStyles();
 
   return (
@@ -23,7 +23,7 @@ const Slider = ({ value, valueLabel }) => {
       <div className={styles.displayValue}>
         {value} {valueLabel && (`- ${valueLabel}`)}
       </div>
-      <input className={styles.slider} type="range" min="1" max="120" value={value} />
+      <input className={styles.slider} type="range" min={min} max={max} value={value} />
     </div>
   );
 };
@@ -37,7 +37,7 @@ Slider.propTypes = {
 
 Slider.defaultProps = {
   min: 1,
-  max: 180,
+  max: 200,
   valueLabel: ''
 }
 

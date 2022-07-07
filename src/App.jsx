@@ -42,8 +42,8 @@ const App = () => {
     <div className={`${theme === 'dark' ? styles.darkMode : styles.lightMode} App`}>
       <div className={styles.modeBar}>
         <div>
-          <input onChange={e => setUrl(e.target.value)} type="text"/>
-          <button onClick={() => dispatch(changeUrl(url))}>Go</button>
+          <input onChange={e => setUrl(e.target.value)} type="text" value={url}/>
+          <button onClick={() => dispatch(changeUrl(url))}>▶️</button>
         </div>
         <button onClick={() => handleThemeChange()}>
           {theme === 'dark' ? '☀️' : '🌙'}

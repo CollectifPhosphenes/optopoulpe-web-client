@@ -10,28 +10,32 @@ const useStyles = makeStyles({
     flexDirection: 'column',
   },
   knobLabel:{
-    paddingBottom: '8px'
+    marginBottom: '4px',
+    fontSize: '18px',
+    maxHeight: '18px'
   },
   knob: {
     width: '50px',
     height: '50px',
     overflow: 'hidden',
     borderRadius: '50%',
-    background: 'lightblue',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     border: '1px solid'
+  },
+  toggled: {
+    background: 'lightblue',
   }
 });
 
-const Knob = ({ value, label }) => {
+const Knob = ({ value, label, isToggled }) => {
   const styles = useStyles();
 
   return (
     <div className={styles.knobContainer}>
       <div className={styles.knobLabel}>{label}</div>
-      <div className={styles.knob}>
+      <div className={`${isToggled ? styles.toggled : ''} ${styles.knob}`}>
         {value}
       </div>
     </div>
@@ -44,7 +48,7 @@ Knob.propTypes = {
 };
 
 Knob.defaultProps = {
-  value: 0,
+  value: '',
   label: ''
 }
 
