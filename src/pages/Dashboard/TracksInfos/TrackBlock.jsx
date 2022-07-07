@@ -123,7 +123,7 @@ const TrackBlock = ({
         {/* Feedback Row */}
         <div>
           <ToggleButton isToggled={feedback.enabled}>{feedback.label}</ToggleButton>
-          <ToggleButton isOnMaster={feedback.enabled && sliderValue > 0}>
+          <ToggleButton isOnMaster={feedback.enabled && sliderValue}>
             <p className={styles.values}>
               <span className={styles.label}>Amount:</span> {feedback.value}
             </p>
