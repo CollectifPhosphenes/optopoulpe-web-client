@@ -44,6 +44,7 @@ const App = () => {
         <div>
           <input onChange={e => setUrl(e.target.value)} type="text" value={url}/>
           <button onClick={() => dispatch(changeUrl(url))}>▶️</button>
+          <button onClick={() => dispatch(changeUrl(''))}>panic ⏹️</button>
         </div>
         <button onClick={() => handleThemeChange()}>
           {theme === 'dark' ? '☀️' : '🌙'}
