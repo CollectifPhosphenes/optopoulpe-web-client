@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import {LabelButton, ToggleButton} from 'components';
-import OSCILLATORS from "../constants";
+import { OSCILLATORS } from "../constants";
 
 const useStyles = makeStyles({
   label: {

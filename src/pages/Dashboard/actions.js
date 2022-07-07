@@ -7,8 +7,8 @@ export const fetchDataSuccess = payload => ({
   data: payload
 });
 
-export const fetchData = () => dispatch => {
-  axios.get('https://1449-89-3-105-179.ngrok.io/parse', {'Content-type': 'application/json'})
+export const fetchData = url => dispatch => {
+  axios.get(url, {'Content-type': 'application/json'})
     .then(response => dispatch(fetchDataSuccess(response.data.state)))
     .catch(error => console.log(error, 'error'))
 };

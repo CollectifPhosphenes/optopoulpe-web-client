@@ -11,4 +11,6 @@ const OSCILLATORS = {
   3: <OscillatorFour />
 };
 
-export default OSCILLATORS;
+const API_FETCH_INTERVAL = 1000;
+
+export { OSCILLATORS, API_FETCH_INTERVAL };
