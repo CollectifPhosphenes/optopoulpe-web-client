@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Dashboard from "pages/Dashboard";
 import { makeStyles } from '@mui/styles';
 import './App.css';
-import {colorModeSwitch} from "./pages/Dashboard/actions";
-import {changeUrl} from "./actions";
+import {colorModeSwitch, changeUrl} from "./pages/Dashboard/actions";
 
 const useStyles = makeStyles({
   modeBar: {

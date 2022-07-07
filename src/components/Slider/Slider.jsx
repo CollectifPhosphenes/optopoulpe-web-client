@@ -22,7 +22,14 @@ const Slider = ({ value, valueLabel, min, max }) => {
       <div className={styles.displayValue}>
         {value} {valueLabel && (`- ${valueLabel}`)}
       </div>
-      <input className={styles.slider} type="range" min={min} max={max} value={value} />
+      <input
+        className={styles.slider}
+        type="range"
+        min={min}
+        max={max}
+        value={value}
+        readOnly
+      />
     </div>
   );
 };

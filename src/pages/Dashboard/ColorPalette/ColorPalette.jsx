@@ -48,6 +48,7 @@ const ColorPalette = ({ activeTrackIndex, modulations }) => {
       <div className={styles.knobsContainer}>
         {modulations.map((modulation, index) => (
           <Knob
+            key={`knob-${index}-${modulation.color_palette.width}`}
             value={modulation.color_palette.selected_palette}
             size="small"
             isToggled={activeTrackIndex === index}

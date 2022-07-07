@@ -54,10 +54,19 @@ const Dashboard = () => {
   const currentSaveState = useSelector (state => state.global.used_save);
   const tracks = useSelector(state => state.tracks);
   const url = useSelector(state => state.app.url);
+  const logs = useSelector(state => state.logs);
+
+  let intervalId;
 
   useEffect(() => {
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+
     if (url) {
-      setInterval(() => dispatch(fetchData(url)), API_FETCH_INTERVAL);
+      intervalId = setInterval(() => dispatch(fetchData(url)), API_FETCH_INTERVAL);
+    } else {
+      clearInterval(intervalId);
     }
   }, [dispatch, fetchData, url]);
 
@@ -81,7 +90,7 @@ const Dashboard = () => {
                 <ColorPalette activeTrackIndex={currentTrack} modulations={modulations} />
               </div>
             </div>
-            <ActionsLogs />
+            <ActionsLogs logs={logs}/>
             <KnobsInfos activeTrack={tracks[currentTrack]}/>
           </div>
         </>
