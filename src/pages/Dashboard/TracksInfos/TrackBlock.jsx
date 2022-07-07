@@ -54,7 +54,7 @@ const useStyles = makeStyles({
     textAlign: 'right'
   },
   active: {
-    color: 'red'
+    color: 'black'
   }
 });
 
