@@ -1,9 +1,18 @@
 import React, { useEffect } from 'react';
+import { makeStyles } from '@mui/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { LabelButton, ToggleButton } from "components";
-import { fetchData } from "./actions";
+import { fetchData } from './actions';
+import TracksInfos from "./TracksInfos";
+
+const useStyles = makeStyles({
+  dashboard: {
+    width: '100%',
+    height: '100%'
+  }
+});
 
 const Dashboard = () => {
+  const styles = useStyles();
   const dispatch = useDispatch();
 
   const global = useSelector(state => state.global);
@@ -14,10 +23,9 @@ const Dashboard = () => {
   }, [dispatch, fetchData]);
 
   return (
-    <>
-      <LabelButton label="Coucou" isToggled={true} />
-      <ToggleButton>Coucou</ToggleButton>
-    </>
+    <div className={styles.dashboard}>
+      <TracksInfos tracks={tracks} />
+    </div>
   );
 }
 
