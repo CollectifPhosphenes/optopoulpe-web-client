@@ -4,8 +4,8 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   toggleButton: {
-    maxWidth: '40px',
-    maxHeight: '20px',
+    width: '40px',
+    height: '15px',
     textAlign: 'center',
     padding: '4px 8px',
     border: '1px solid black',

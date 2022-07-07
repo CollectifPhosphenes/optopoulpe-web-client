@@ -25,7 +25,8 @@ const useStyles = makeStyles({
     flexDirection: 'column',
 
     '& div' : {
-      marginBottom: '2px'
+      marginBottom: '2px',
+      display: 'flex'
     }
   },
   lowerBlock: {
@@ -53,6 +54,18 @@ const TrackBlock = ({
         <div>
           <ToggleButton
             children={modulation.label}
+            isToggled={modulation.enabled}
+          />
+          <ToggleButton
+            children="coucou"
+            isToggled={modulation.enabled}
+          />
+          <ToggleButton
+            children={modulation.color_palette.offset}
+            isToggled={modulation.enabled}
+          />
+          <ToggleButton
+            children={modulation.color_palette.width}
             isToggled={modulation.enabled}
           />
         </div>
