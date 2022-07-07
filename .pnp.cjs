@@ -937,6 +937,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@vitejs/plugin-react", "npm:1.3.2"],\
+            ["prop-types", "npm:15.8.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:bfea89b8845259cfd30179663df1421ebd559520578dadfe0d2434f339d5e095d3a24fb2d3898b9e547a1c79034ffe4a6dcb0997bed8228ca48a841f45b86c6b#npm:18.2.0"],\
             ["react-redux", "virtual:bfea89b8845259cfd30179663df1421ebd559520578dadfe0d2434f339d5e095d3a24fb2d3898b9e547a1c79034ffe4a6dcb0997bed8228ca48a841f45b86c6b#npm:8.0.2"],\
@@ -3037,6 +3038,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@vitejs/plugin-react", "npm:1.3.2"],\
+            ["prop-types", "npm:15.8.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:bfea89b8845259cfd30179663df1421ebd559520578dadfe0d2434f339d5e095d3a24fb2d3898b9e547a1c79034ffe4a6dcb0997bed8228ca48a841f45b86c6b#npm:18.2.0"],\
             ["react-redux", "virtual:bfea89b8845259cfd30179663df1421ebd559520578dadfe0d2434f339d5e095d3a24fb2d3898b9e547a1c79034ffe4a6dcb0997bed8228ca48a841f45b86c6b#npm:8.0.2"],\

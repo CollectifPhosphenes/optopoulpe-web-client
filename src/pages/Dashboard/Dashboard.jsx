@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import LabelButton from "components/LabelButton/LabelButton";
+import { LabelButton, ToggleButton } from "components";
 import { fetchData } from "./actions";
 
 const Dashboard = () => {
@@ -10,7 +10,12 @@ const Dashboard = () => {
     dispatch(fetchData());
   }, [dispatch, fetchData]);
 
-  return <LabelButton label="Coucou" isToggled={true} />;
+  return (
+    <>
+      <LabelButton label="Coucou" isToggled={true} />
+      <ToggleButton />
+    </>
+  );
 }
 
 export default Dashboard;
