@@ -18,13 +18,17 @@ const useStyles = makeStyles({
   },
   toggleButtonUnToggled: {
     background: 'grey'
-  }
+  },
+  toggleButtonOnMaster: {
+      background: 'lightblue'
+  },
+  toggleButtonNotOnMaster: {}
 });
 
-const ToggleButton = ({ isToggled, children }) => {
+const ToggleButton = ({ isToggled, isOnMaster, children }) => {
   const styles = useStyles();
   return (
-    <div className={`${isToggled ? styles.toggleButtonToggled : styles.toggleButtonUnToggled} ${styles.toggleButton}`}>
+    <div className={`${isToggled ? styles.toggleButtonToggled : styles.toggleButtonUnToggled} ${isOnMaster ? styles.toggleButtonOnMaster : styles.toggleButtonNotOnMaster} ${styles.toggleButton}`}>
       {children}
     </div>
   );
@@ -32,12 +36,14 @@ const ToggleButton = ({ isToggled, children }) => {
 
 ToggleButton.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  isToggled: PropTypes.bool
+  isToggled: PropTypes.bool,
+  isOnMaster: PropTypes.bool
 }
 
 ToggleButton.defaultProps = {
   children: null,
-  isToggled: false
+  isToggled: false,
+  isOnMaster: false,
 }
 
 export default ToggleButton;
