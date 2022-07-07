@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LabelButton, ToggleButton } from "components";
 import { fetchData } from "./actions";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+
+  const global = useSelector(state => state.global);
+  const tracks = useSelector(state => state.tracks);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -13,7 +16,7 @@ const Dashboard = () => {
   return (
     <>
       <LabelButton label="Coucou" isToggled={true} />
-      <ToggleButton />
+      <ToggleButton>Coucou</ToggleButton>
     </>
   );
 }
