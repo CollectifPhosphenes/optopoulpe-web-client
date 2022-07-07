@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from './actions';
 import TracksInfos from './TracksInfos';
 import GlobalInfos from './GlobalInfos';
+import {API_FETCH_INTERVAL} from "./constants";
 
 const useStyles = makeStyles({
   dashboard: {
@@ -22,7 +23,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (url) {
-      setInterval(() => dispatch(fetchData()), 1000);
+      setInterval(() => dispatch(fetchData(url)), API_FETCH_INTERVAL);
     }
   }, [dispatch, fetchData, url]);
 
