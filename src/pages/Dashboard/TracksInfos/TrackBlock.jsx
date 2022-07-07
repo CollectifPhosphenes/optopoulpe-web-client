@@ -75,7 +75,7 @@ const TrackBlock = ({
   const [isGroupOne, isGroupTwo, isGroupThree] = groups;
 
   const darkColor = isActive ? 'darkred' : 'darkgrey';
-  const lightColor = isActive ? 'indianred' : 'lightgrey';
+  const lightColor = isActive ? 'palevioletred' : 'lightgrey';
   const percentage = (sliderValue + 1) * (100 / 128);
 
   return (
