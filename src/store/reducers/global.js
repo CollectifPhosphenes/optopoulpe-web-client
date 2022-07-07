@@ -2,7 +2,6 @@ import {FETCH_DATA_SUCCESS} from "store/glossary";
 
 export const GLOBAL_DEFAULT_STATE = {
   bpm: null,
-  current_selected_track: null,
   current_selected_track_index: null,
   kill_all_tracks_enabled: false
 };

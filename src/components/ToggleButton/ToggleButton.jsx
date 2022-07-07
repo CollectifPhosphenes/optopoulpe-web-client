@@ -4,8 +4,8 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   toggleButton: {
-    maxWidth: '60px',
-    height: '30px',
+    maxWidth: '40px',
+    maxHeight: '20px',
     textAlign: 'center',
     padding: '4px 8px',
     border: '1px solid black',
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   toggleButtonToggled: {
     background: 'green'
   },
-  labelButtonUnToggled: {
+  toggleButtonUnToggled: {
     background: 'grey'
   }
 });
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 const ToggleButton = ({ isToggled, children }) => {
   const styles = useStyles();
   return (
-    <div className={`${isToggled ? styles.labelButtonToggled : styles.labelButtonUntoggled} ${styles.toggleButton}`}>
+    <div className={`${isToggled ? styles.toggleButtonToggled : styles.toggleButtonUnToggled} ${styles.toggleButton}`}>
       {children}
     </div>
   );

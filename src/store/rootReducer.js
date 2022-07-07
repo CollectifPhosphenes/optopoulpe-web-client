@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { GlobalReducer, TracksReducer } from './reducers';
+import {AppReducer, GlobalReducer, TracksReducer} from './reducers';
 
 export default combineReducers({
+  app: AppReducer,
   global: GlobalReducer,
   tracks: TracksReducer
 });
