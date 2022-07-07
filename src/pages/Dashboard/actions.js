@@ -1,4 +1,4 @@
-import mock from 'assets/mock.json';
+import axios from 'axios';
 import {COLOR_THEME_CHANGE, FETCH_DATA_SUCCESS} from "store/glossary";
 
 // DATA FETCHING
@@ -8,8 +8,9 @@ export const fetchDataSuccess = payload => ({
 });
 
 export const fetchData = () => dispatch => {
-  const mockedData = JSON.parse(JSON.stringify(mock)).state;
-  dispatch(fetchDataSuccess(mockedData));
+  axios.get('https://1449-89-3-105-179.ngrok.io/parse', {'Content-type': 'application/json'})
+    .then(response => dispatch(fetchDataSuccess(response.data.state)))
+    .catch(error => console.log(error, 'error'))
 };
 
 // DARK MODE / LIGHT MODE

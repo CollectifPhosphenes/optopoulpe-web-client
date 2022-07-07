@@ -45,7 +45,14 @@ const useStyles = makeStyles({
     '& div': {
       marginRight: '4px'
     }
-  }
+  },
+  timeScale: {
+    position: 'absolute',
+    top: 8,
+    right: 4,
+    fontSize: '12px',
+    textAlign: 'right'
+  },
 });
 
 const TrackBlock = ({
@@ -55,8 +62,9 @@ const TrackBlock = ({
   slicer,
   feedback,
   strobe,
-  sliderValue,
-  sliderMaxEnabled,
+  sliderValue, // TODO: Adds gradient background
+  sliderMaxEnabled, // TODO: Adds gradient background,
+  timeScale,
   groups
 }) => {
   const styles = useStyles();
@@ -146,7 +154,7 @@ const TrackBlock = ({
                 <span className={styles.label}>Amount:</span> {feedback.value}
               </p>
             }
-            isToggled={slicer.enabled}
+            isToggled={feedback.enabled}
           />
         </div>
         {/* Strobe Row */}
@@ -164,6 +172,10 @@ const TrackBlock = ({
       </div>
       <div className={styles.trackIndex}>
         {index+1}
+      </div>
+      <div className={styles.timeScale}>
+        Time scale: <br/>
+        {timeScale}
       </div>
     </div>
   );
