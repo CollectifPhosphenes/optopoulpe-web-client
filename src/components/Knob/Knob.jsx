@@ -22,20 +22,39 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '1px solid'
+    border: '1px solid',
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: '18px'
+  },
+  smallKnob: {
+    width: '25px',
+    height: '25px',
+    overflow: 'hidden',
+    borderRadius: '50%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    border: '1px solid',
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: '14px'
   },
   toggled: {
     background: 'lightblue',
   }
 });
 
-const Knob = ({ value, label, isToggled }) => {
+const Knob = ({ value, label, isToggled, size }) => {
   const styles = useStyles();
 
   return (
     <div className={styles.knobContainer}>
       <div className={styles.knobLabel}>{label}</div>
-      <div className={`${isToggled ? styles.toggled : ''} ${styles.knob}`}>
+      <div className={`
+        ${isToggled ? styles.toggled : ''} 
+        ${size === 'regular' ? styles.knob : styles.smallKnob}`}
+      >
         {value}
       </div>
     </div>
@@ -44,12 +63,14 @@ const Knob = ({ value, label, isToggled }) => {
 
 Knob.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.node]),
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.node])
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.node]),
+  size: PropTypes.oneOf(['small', 'regular'])
 };
 
 Knob.defaultProps = {
   value: '',
-  label: ''
+  label: '',
+  size: 'regular'
 }
 
 export default Knob;

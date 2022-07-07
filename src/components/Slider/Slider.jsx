@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    background: 'lightgrey',
     padding: '8px 16px'
   }
 });

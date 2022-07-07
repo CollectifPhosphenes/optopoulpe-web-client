@@ -3,7 +3,9 @@ import { makeStyles } from '@mui/styles';
 import { Slider } from 'components';
 
 const useStyles = makeStyles({
-  strobeSlider: {}
+  strobeSlider: {
+    borderTop: '1px solid white'
+  }
 });
 
 const StrobeSlider = ({ value }) => {
@@ -11,7 +13,7 @@ const StrobeSlider = ({ value }) => {
 
   return (
     <div className={styles.strobeSlider}>
-      <Slider value={value} min={0} max={127}/>
+      <Slider value={value} min={0} max={127} valueLabel="Strobe speed"/>
     </div>
   )
 };

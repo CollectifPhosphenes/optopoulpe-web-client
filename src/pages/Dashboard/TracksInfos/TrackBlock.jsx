@@ -53,10 +53,14 @@ const useStyles = makeStyles({
     fontSize: '12px',
     textAlign: 'right'
   },
+  active: {
+    color: 'red'
+  }
 });
 
 const TrackBlock = ({
   index,
+  isActive,
   modulation,
   mask,
   slicer,
@@ -134,7 +138,7 @@ const TrackBlock = ({
         <LabelButton label="Label 3" isToggled={isGroupThree}/>
       </div>
       <div className={styles.trackIndex}>
-        {index+1}
+        <p className={isActive ? styles.active : ''}>{index+1}</p>
       </div>
       <div className={styles.timeScale}>
         Time scale: <br/>
