@@ -4,8 +4,8 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   labelButton: {
-    maxWidth: '40px',
-    maxHeight: '10px',
+    width: '40px',
+    height: '10px',
     textAlign: 'center',
     padding: '4px 8px',
     border: '1px solid black',
