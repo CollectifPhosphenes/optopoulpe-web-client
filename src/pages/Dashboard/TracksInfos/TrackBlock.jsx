@@ -74,8 +74,12 @@ const TrackBlock = ({
   const styles = useStyles();
   const [isGroupOne, isGroupTwo, isGroupThree] = groups;
 
+  const darkColor = isActive ? 'darkred' : 'darkgrey';
+  const lightColor = isActive ? 'indianred' : 'lightgrey';
+  const percentage = (sliderValue + 1) * (100 / 128);
+
   return (
-    <div className={styles.trackBlock}>
+    <div className={styles.trackBlock} style={{background: `linear-gradient(to top, ${darkColor} ${percentage}%, ${lightColor} 0%)`}}>
       <div className={styles.upperBlock}>
         {/* Modulation Row */}
         <div>
