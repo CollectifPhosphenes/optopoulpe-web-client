@@ -20,14 +20,14 @@ const logGlobalChanges = newPayload => (dispatch, getState) => {
   if (currentGlobalState.bpm !== newPayload.bpm) {
     dispatch(logDispatcher(
       LOG_BPM,
-      `[GLOBAL - BPM] Change from ${currentGlobalState.bpm} to ${newPayload.bpm}.`
+      `[BPM] ${currentGlobalState.bpm} => ${newPayload.bpm}.`
     ));
   }
 
   if (currentGlobalState.current_selected_track_index !== newPayload.current_selected_track_index) {
     dispatch(logDispatcher(
       LOG_CURRENT_TRACK,
-      `[GLOBAL - ACTIVE TRACK] Track ${newPayload.bpm} is now active.`
+      `[ACTIVE TRACK] Track ${newPayload.current_selected_track_index} selected.`
     ));
   }
 
@@ -35,7 +35,7 @@ const logGlobalChanges = newPayload => (dispatch, getState) => {
     if (newPayload.kill_all_tracks_enabled) {
       dispatch(logDispatcher(
         LOG_KILL_ALL_TRACK,
-        '[GLOBAL - KILL ALL TRACKS] Killed all tracks'
+        '[KILL ALL TRACKS] Killed all tracks'
       ));
     }
   }
@@ -43,14 +43,14 @@ const logGlobalChanges = newPayload => (dispatch, getState) => {
   if (currentGlobalState.strobe_speed !== newPayload.strobe_speed) {
     dispatch(logDispatcher(
       LOG_STROBE_SPEED,
-      `[GLOBAL - STROBE SPEED] Change from ${currentGlobalState.strobe_speed} to ${newPayload.strobe_speed}.`
+      `[STROBE SPEED] ${currentGlobalState.strobe_speed} => ${newPayload.strobe_speed}.`
     ));
   }
 
   if (currentGlobalState.used_save !== newPayload.used_save) {
     dispatch(logDispatcher(
       LOG_SAVE_STATE,
-      `[GLOBAL - SAVED STATE] Change from ${currentGlobalState.used_save} to ${newPayload.used_save}.`
+      `[SAVED STATE] Loaded ${newPayload.used_save}.`
     ));
   }
 };
@@ -82,31 +82,31 @@ const logTracksChanges = newPayload => (dispatch, getState) => {
 
       if (modulation.enabled !== newModulation.enabled) {
         newMessages.push(
-          `[TRACK - MODULATION] ${newModulation ? 'Enabled' : 'Disabled'} on track ${current+1}`
+          `[TRACK ${current+1}] MODULATION ${newModulation ? 'ENABLED' : 'DISABLED'}`
         );
       }
 
       if (mask.enabled !== newMask.enabled) {
         newMessages.push(
-          `[TRACK - MASK] ${newMask ? 'Enabled' : 'Disabled'} on track ${current+1}`
+          `[TRACK ${current+1}] MASK ${newMask ? 'ENABLED' : 'DISABLED'}`
         );
       }
 
       if (slicer.enabled !== newSlicer.enabled) {
         newMessages.push(
-          `[TRACK - SLICER] ${newSlicer ? 'Enabled' : 'Disabled'} on track ${current+1}`
+          `[TRACK ${current+1}] SLICER ${newSlicer ? 'ENABLED' : 'DISABLED'}`
         );
       }
 
       if (feedback.enabled !== newFeedback.enabled) {
         newMessages.push(
-          `[TRACK - FEEDBACK] ${newFeedback ? 'Enabled' : 'Disabled'} on track ${current+1}`
+          `[TRACK ${current+1}] FEEDBACK ${newFeedback ? 'ENABLED' : 'DISABLED'}`
         );
       }
 
       if (strobe.enabled !== newStrobe.enabled) {
         newMessages.push(
-          `[TRACK - STROBE] ${newStrobe ? 'Enabled' : 'Disabled'} on track ${current+1}`
+          `[TRACK ${current+1}] STROBE ${newStrobe ? 'ENABLED' : 'DISABLED'}`
         );
       }
 

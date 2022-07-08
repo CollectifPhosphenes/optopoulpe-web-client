@@ -51,7 +51,8 @@ const useStyles = makeStyles({
     top: 8,
     right: 4,
     fontSize: '12px',
-    textAlign: 'right'
+    textAlign: 'right',
+    color: 'black',
   },
   active: {
     color: 'black'
@@ -83,14 +84,14 @@ const TrackBlock = ({
       <div className={styles.upperBlock}>
         {/* Modulation Row */}
         <div>
-          <ToggleButton isToggled={modulation.enabled}>{modulation.label}</ToggleButton>
-          <ToggleButton isOnMaster={modulation.enabled}>{OSCILLATORS[modulation.oscillator_track]}</ToggleButton>
-          <ToggleButton isOnMaster={true}>
+          <ToggleButton isToggled={modulation.enabled}>Color Mod</ToggleButton>
+          <ToggleButton isOnMaster={modulation.enabled} isSelected={modulation.enabled}>{OSCILLATORS[modulation.oscillator_track]}</ToggleButton>
+          <ToggleButton isOnMaster={true} isSelected={!modulation.enabled}>
             <p className={styles.values}>
               <span className={styles.label}>Offset:</span> {modulation.color_palette.offset}
             </p>
           </ToggleButton>
-          <ToggleButton isOnMaster={true}>
+          <ToggleButton isOnMaster={true} isSelected={true}>
             <p className={styles.values}>
               <span className={styles.label}>Width:</span> {modulation.color_palette.width}
             </p>
@@ -98,9 +99,9 @@ const TrackBlock = ({
         </div>
         {/* Mask Row */}
         <div>
-          <ToggleButton isToggled={mask.enabled}>{mask.label}</ToggleButton>
-          <ToggleButton isOnMaster={mask.enabled}>{OSCILLATORS[mask.oscillator_track]}</ToggleButton>
-          <ToggleButton isOnMaster={mask.enabled}>
+          <ToggleButton isToggled={mask.enabled}>Mask Mod</ToggleButton>
+          <ToggleButton isOnMaster={mask.enabled} isSelected={true}>{OSCILLATORS[mask.oscillator_track]}</ToggleButton>
+          <ToggleButton isOnMaster={mask.enabled} isSelected={true}>
             <p className={styles.values}>
               <span className={styles.label}>Length:</span> {mask.length}
             </p>
@@ -109,12 +110,12 @@ const TrackBlock = ({
         {/* Slicer Row */}
         <div>
           <ToggleButton isToggled={slicer.enabled}>{slicer.label}</ToggleButton>
-          <ToggleButton isOnMaster={!slicer.enabled}>
+          <ToggleButton isOnMaster={!slicer.enabled} isSelected={true}>
             <p className={styles.values}>
               <span className={styles.label}>Count:<br/></span> {slicer.slices_value}
             </p>
           </ToggleButton>
-          <ToggleButton isOnMaster={slicer.enabled}>
+          <ToggleButton isOnMaster={slicer.enabled} isSelected={true}>
             <p className={styles.values}>
               <span className={styles.label}>Length:</span> {slicer.uneven_value}
             </p>
@@ -123,7 +124,7 @@ const TrackBlock = ({
         {/* Feedback Row */}
         <div>
           <ToggleButton isToggled={feedback.enabled}>{feedback.label}</ToggleButton>
-          <ToggleButton isOnMaster={feedback.enabled && !!sliderValue}>
+          <ToggleButton isOnMaster={feedback.enabled} isSelected={true}>
             <p className={styles.values}>
               <span className={styles.label}>Amount:</span> {feedback.value}
             </p>
@@ -145,7 +146,7 @@ const TrackBlock = ({
         <p className={isActive ? styles.active : ''}>{index+1}</p>
       </div>
       <div className={styles.timeScale}>
-        Time scale: <br/>
+        Timescale: <br/>
         {timeScale}
       </div>
     </div>

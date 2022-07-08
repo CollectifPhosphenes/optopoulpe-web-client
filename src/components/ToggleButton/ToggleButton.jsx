@@ -8,10 +8,10 @@ const useStyles = makeStyles({
     height: '15px',
     textAlign: 'center',
     padding: '4px 8px',
-    border: '1px solid black',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    color: 'black',
   },
   toggleButtonToggled: {
     background: 'green'
@@ -22,13 +22,19 @@ const useStyles = makeStyles({
   toggleButtonOnMaster: {
       background: 'lightblue'
   },
-  toggleButtonNotOnMaster: {}
+  toggleButtonNotOnMaster: {},
+  toggleButtonSelected: {
+    border: '2.5px solid black',
+  },
+  toggleButtonNotSelected: {
+    border: '1px solid black',
+  }
 });
 
-const ToggleButton = ({ isToggled, isOnMaster, children }) => {
+const ToggleButton = ({ isToggled, isOnMaster, isSelected, children }) => {
   const styles = useStyles();
   return (
-    <div className={`${isToggled ? styles.toggleButtonToggled : styles.toggleButtonUnToggled} ${isOnMaster ? styles.toggleButtonOnMaster : styles.toggleButtonNotOnMaster} ${styles.toggleButton}`}>
+    <div className={`${isToggled ? styles.toggleButtonToggled : styles.toggleButtonUnToggled} ${isOnMaster ? styles.toggleButtonOnMaster : styles.toggleButtonNotOnMaster} ${isSelected ? styles.toggleButtonSelected : styles.toggleButtonNotSelected} ${styles.toggleButton}`}>
       {children}
     </div>
   );
@@ -37,13 +43,15 @@ const ToggleButton = ({ isToggled, isOnMaster, children }) => {
 ToggleButton.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   isToggled: PropTypes.bool,
-  isOnMaster: PropTypes.bool
+  isOnMaster: PropTypes.bool,
+  isSelected: PropTypes.bool,
 }
 
 ToggleButton.defaultProps = {
   children: null,
   isToggled: false,
   isOnMaster: false,
+  isSelected: false,
 }
 
 export default ToggleButton;

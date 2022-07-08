@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     gridTemplateRows: 'repeat(2, 1fr)',
     gridColumnGap: '0px',
     gridRowGap: '8px',
-    padding: '4px'
+    padding: '4px',
   }
 });
 

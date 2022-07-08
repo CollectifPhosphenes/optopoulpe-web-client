@@ -11,7 +11,10 @@ const useStyles = makeStyles({
     marginBottom: '8px',
     padding: '4px',
     fontSize: '14px',
-    lineHeight: '20px'
+    lineHeight: '180px',
+    '& .log-entry': {
+      fontSize: '35px',
+    }
   }
 });
 
@@ -27,7 +30,7 @@ const ActionsLogs = ({ logs }) => {
 
   return (
     <div className={styles.actionsLogs} onClick={handleScroll}>
-      {logs.map((log, index) => <Fragment key={`log-${index}`}>{log}<br/></Fragment>)}
+      {logs.map((log, index) => <Fragment key={`log-${index}`}><span class={'log-entry'}>{log}</span><br/></Fragment>)}
       <span ref={logRef} />
     </div>
   );

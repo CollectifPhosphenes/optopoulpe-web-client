@@ -13,12 +13,23 @@ const useStyles = makeStyles({
     background: 'darkgrey',
     border: '1px solid black'
   },
-  globalInfosLabel: {
+  currentTrackLabel: {
     fontWeight: 'bold',
-    fontSize: '28px',
+    fontSize: '100px',
     textAlign: 'center',
-    marginBottom: '16px'
-  }
+    marginBottom: '16px',
+    color: 'red',
+    backgroundColor: '#30363d',
+    padding: '15px',
+  },
+  bpmLabel: {
+    fontWeight: 'bold',
+    fontSize: '30px',
+    textAlign: 'center',
+    marginBottom: '16px',
+      color: 'black',
+  },
+
 });
 
 const GlobalInfos = ({ activeTrack, bpm }) => {
@@ -26,8 +37,8 @@ const GlobalInfos = ({ activeTrack, bpm }) => {
 
   return (
     <div className={styles.globalInfos}>
-      <p className={styles.globalInfosLabel}>Active Track :<br/>{activeTrack.index+1}</p>
-      <p className={styles.globalInfosLabel}>BPM :<br/>{bpm}</p>
+      <p className={styles.currentTrackLabel}>{activeTrack.index+1}</p>
+      <p className={styles.bpmLabel}>BPM<br/>{bpm}</p>
     </div>
   );
 };
