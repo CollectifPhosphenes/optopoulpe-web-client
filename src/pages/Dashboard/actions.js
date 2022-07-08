@@ -20,14 +20,14 @@ const logGlobalChanges = newPayload => (dispatch, getState) => {
   if (currentGlobalState.bpm !== newPayload.bpm) {
     dispatch(logDispatcher(
       LOG_BPM,
-      `[BPM] ${currentGlobalState.bpm} => ${newPayload.bpm}.`
+      `[BPM] ${newPayload.bpm}`
     ));
   }
 
   if (currentGlobalState.current_selected_track_index !== newPayload.current_selected_track_index) {
     dispatch(logDispatcher(
       LOG_CURRENT_TRACK,
-      `[ACTIVE TRACK] Track ${newPayload.current_selected_track_index} selected.`
+      `[ACTIVE TRACK] Track ${newPayload.current_selected_track_index} selected`
     ));
   }
 
@@ -35,7 +35,7 @@ const logGlobalChanges = newPayload => (dispatch, getState) => {
     if (newPayload.kill_all_tracks_enabled) {
       dispatch(logDispatcher(
         LOG_KILL_ALL_TRACK,
-        '[KILL ALL TRACKS] Killed all tracks'
+        '[KILL ALL TRACKS] Kill all tracks'
       ));
     }
   }
@@ -43,14 +43,14 @@ const logGlobalChanges = newPayload => (dispatch, getState) => {
   if (currentGlobalState.strobe_speed !== newPayload.strobe_speed) {
     dispatch(logDispatcher(
       LOG_STROBE_SPEED,
-      `[STROBE SPEED] ${currentGlobalState.strobe_speed} => ${newPayload.strobe_speed}.`
+      `[STROBE SPEED] ${newPayload.strobe_speed}`
     ));
   }
 
   if (currentGlobalState.used_save !== newPayload.used_save) {
     dispatch(logDispatcher(
       LOG_SAVE_STATE,
-      `[SAVED STATE] Loaded ${newPayload.used_save}.`
+      `[SAVESTATE] Loaded ${newPayload.used_save}`
     ));
   }
 };
