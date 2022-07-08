@@ -30,7 +30,7 @@ const KnobsInfos = ({ activeTrack }) => {
 
   return (
     <div className={styles.knobsInfos}>
-      <Knob label={OSCILLATORS[modulation.oscillator_track]} isToggled={modulation.enabled}/>
+      <Knob label={modulation.enabled ? OSCILLATORS[modulation.oscillator_track] : "Palette Offset"} isToggled={modulation.enabled} value={modulation.enabled ? '' : modulation.color_palette.offset} horizontalFill={true}/>
       <Knob label={OSCILLATORS[mask.oscillator_track]} isToggled={mask.enabled}/>
       <Knob label={"Subd. count"} value={slicer.slices_value} horizontalFill={true} isToggled={!slicer.enabled}/>
       <Knob label="Feedback" value={feedback.value} isToggled={feedback.enabled} horizontalFill={true} />

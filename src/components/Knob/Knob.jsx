@@ -50,7 +50,6 @@ const Knob = ({ value, label, isToggled, size, horizontalFill }) => {
   const styles = useStyles();
 
   const fillPercentage = (value + 1) * (100 / 128);
-  console.log(fillPercentage);
 
   return (
     <div className={styles.knobContainer}>
@@ -58,7 +57,7 @@ const Knob = ({ value, label, isToggled, size, horizontalFill }) => {
       <div className={`
         ${isToggled && !horizontalFill ? styles.toggled : ''} 
         ${size === 'regular' ? styles.knob : styles.smallKnob}`}
-        style={{background: isToggled && horizontalFill ? `linear-gradient(to right, lightblue ${fillPercentage}%, grey 0%)` : ''}}
+        style={{background: horizontalFill ? `linear-gradient(to right, lightblue ${fillPercentage}%, grey 0%)` : ''}}
       >
         {value}
       </div>
