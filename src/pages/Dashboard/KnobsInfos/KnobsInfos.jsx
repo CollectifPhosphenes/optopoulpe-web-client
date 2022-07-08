@@ -32,12 +32,12 @@ const KnobsInfos = ({ activeTrack }) => {
     <div className={styles.knobsInfos}>
       <Knob label={OSCILLATORS[modulation.oscillator_track]} isToggled={modulation.enabled}/>
       <Knob label={OSCILLATORS[mask.oscillator_track]} isToggled={mask.enabled}/>
-      <Knob label={"Subd. count"} value={slicer.slices_value} isToggled={!slicer.enabled}/>
-      <Knob label="Feedback" value={feedback.value} isToggled={feedback.enabled}/>
-      <Knob label="Palette Width" value={modulation.color_palette.width} isToggled={modulation.enabled}/>
-      <Knob label="Length" value={mask.length} isToggled={mask.enabled}/>
-      <Knob label="Subd. length" value={slicer.uneven_value} isToggled={slicer.enabled}/>
-      <Knob label="Timescale" value={timeScale} isToggled/>
+      <Knob label={"Subd. count"} value={slicer.slices_value} horizontalFill={true} isToggled={!slicer.enabled}/>
+      <Knob label="Feedback" value={feedback.value} isToggled={feedback.enabled} horizontalFill={true} />
+      <Knob label="Palette Width" value={modulation.color_palette.width} horizontalFill={true} isToggled={modulation.enabled}/>
+      <Knob label="Length" value={mask.length} horizontalFill={true} isToggled={mask.enabled}/>
+      <Knob label="Subd. length" value={slicer.uneven_value} horizontalFill={true} isToggled={slicer.enabled}/>
+      <Knob label="Timescale" value={timeScale} horizontalFill={true} isToggled/>
     </div>
   );
 };

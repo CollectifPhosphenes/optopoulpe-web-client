@@ -46,15 +46,19 @@ const useStyles = makeStyles({
   }
 });
 
-const Knob = ({ value, label, isToggled, size }) => {
+const Knob = ({ value, label, isToggled, size, horizontalFill }) => {
   const styles = useStyles();
+
+  const fillPercentage = (value + 1) * (100 / 128);
+  console.log(fillPercentage);
 
   return (
     <div className={styles.knobContainer}>
       <div className={styles.knobLabel}>{label}</div>
       <div className={`
-        ${isToggled ? styles.toggled : ''} 
+        ${isToggled && !horizontalFill ? styles.toggled : ''} 
         ${size === 'regular' ? styles.knob : styles.smallKnob}`}
+        style={{background: isToggled && horizontalFill ? `linear-gradient(to right, lightblue ${fillPercentage}%, grey 0%)` : ''}}
       >
         {value}
       </div>
@@ -65,13 +69,15 @@ const Knob = ({ value, label, isToggled, size }) => {
 Knob.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.node]),
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.node]),
-  size: PropTypes.oneOf(['small', 'regular'])
+  size: PropTypes.oneOf(['small', 'regular']),
+  horizontalFill: PropTypes.bool
 };
 
 Knob.defaultProps = {
   value: '',
   label: '',
-  size: 'regular'
+  size: 'regular',
+  horizontalFill: false,
 }
 
 export default Knob;
