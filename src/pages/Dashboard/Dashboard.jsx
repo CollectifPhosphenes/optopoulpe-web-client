@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@mui/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from './actions';
@@ -10,6 +10,7 @@ import StrobeSlider from "./StrobeSlider";
 import ColorPalette from "./ColorPalette";
 import {API_FETCH_INTERVAL} from "./constants";
 import SavedStatesInfos from "./SavedStatesInfos";
+import useInterval from "hooks/useInterval";
 
 const useStyles = makeStyles({
   dashboard: {
@@ -56,19 +57,7 @@ const Dashboard = () => {
   const url = useSelector(state => state.app.url);
   const logs = useSelector(state => state.logs);
 
-  let intervalId;
-
-  useEffect(() => {
-    if (intervalId) {
-      clearInterval(intervalId);
-    }
-
-    if (url) {
-      intervalId = setInterval(() => dispatch(fetchData(url)), API_FETCH_INTERVAL);
-    } else {
-      clearInterval(intervalId);
-    }
-  }, [dispatch, fetchData, url]);
+  useInterval(() => dispatch(fetchData(url)), url ? API_FETCH_INTERVAL : null);
 
   const modulations = tracks ?
     Object.values(tracks).reduce((prev, current) => [...prev, current.modulation], []):
