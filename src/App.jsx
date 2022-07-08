@@ -41,7 +41,7 @@ const App = () => {
     <div className={`${theme === 'dark' ? styles.darkMode : styles.lightMode} App`}>
       <div className={styles.modeBar}>
         <div>
-          <input onChange={e => setUrl(e.target.value)} type="text" value={url}/>
+          <input onChange={e => setUrl(e.target.value)} type="text" value={url ? url : 'http://127.0.0.1:8069/parse'}/>
           <button onClick={() => dispatch(changeUrl(url))}>▶️</button>
           <button onClick={() => dispatch(changeUrl(''))}>panic ⏹️</button>
         </div>

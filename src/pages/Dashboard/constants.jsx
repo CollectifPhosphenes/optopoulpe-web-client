@@ -11,6 +11,13 @@ const OSCILLATORS = {
   3: <OscillatorFour />
 };
 
-const API_FETCH_INTERVAL = 5000;
+const OSCILLATORS_NAMES = {
+  0: "SINE",
+  1: "TRI ANGLE",
+  2: "SAW TOOTH",
+  3: "RANDOM",
+}
 
-export { OSCILLATORS, API_FETCH_INTERVAL };
+const API_FETCH_INTERVAL = 500;
+
+export { OSCILLATORS, OSCILLATORS_NAMES, API_FETCH_INTERVAL };

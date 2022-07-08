@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import {LabelButton, ToggleButton} from 'components';
-import { OSCILLATORS } from "../constants";
+import { OSCILLATORS_NAMES } from "../constants";
 
 const useStyles = makeStyles({
   label: {
@@ -85,7 +85,7 @@ const TrackBlock = ({
         {/* Modulation Row */}
         <div>
           <ToggleButton isToggled={modulation.enabled}>Color Mod</ToggleButton>
-          <ToggleButton isOnMaster={modulation.enabled} isSelected={modulation.enabled}>{OSCILLATORS[modulation.oscillator_track]}</ToggleButton>
+          <ToggleButton isOnMaster={modulation.enabled} isSelected={modulation.enabled}>{OSCILLATORS_NAMES[modulation.oscillator_track]}</ToggleButton>
           <ToggleButton isOnMaster={true} isSelected={!modulation.enabled}>
             <p className={styles.values}>
               <span className={styles.label}>Offset:</span> {modulation.color_palette.offset}
@@ -100,7 +100,7 @@ const TrackBlock = ({
         {/* Mask Row */}
         <div>
           <ToggleButton isToggled={mask.enabled}>Mask Mod</ToggleButton>
-          <ToggleButton isOnMaster={mask.enabled} isSelected={true}>{OSCILLATORS[mask.oscillator_track]}</ToggleButton>
+          <ToggleButton isOnMaster={mask.enabled} isSelected={true}>{OSCILLATORS_NAMES[mask.oscillator_track]}</ToggleButton>
           <ToggleButton isOnMaster={mask.enabled} isSelected={true}>
             <p className={styles.values}>
               <span className={styles.label}>Length:</span> {mask.length}

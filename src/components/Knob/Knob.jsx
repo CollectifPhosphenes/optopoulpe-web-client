@@ -12,7 +12,8 @@ const useStyles = makeStyles({
   knobLabel:{
     marginBottom: '4px',
     fontSize: '18px',
-    maxHeight: '18px'
+    maxHeight: '18px',
+    zIndex: 10,
   },
   knob: {
     width: '50px',
