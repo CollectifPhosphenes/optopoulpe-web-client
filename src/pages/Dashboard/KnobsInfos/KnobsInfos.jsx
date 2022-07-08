@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     gridTemplateRows: 'repeat(2, 1fr)',
     gridColumnGap: '0px',
     gridRowGap: '8px',
-    padding: '4px',
+    padding: '4px'
   }
 });
 
@@ -30,14 +30,19 @@ const KnobsInfos = ({ activeTrack }) => {
 
   return (
     <div className={styles.knobsInfos}>
-      <Knob label={modulation.enabled ? OSCILLATORS[modulation.oscillator_track] : "Palette Offset"} isToggled={modulation.enabled} value={modulation.enabled ? '' : modulation.color_palette.offset} horizontalFill={true}/>
+      <Knob
+        label={modulation.enabled ? OSCILLATORS[modulation.oscillator_track] : "Palette Offset"}
+        isToggled={modulation.enabled}
+        value={modulation.enabled ? '' : modulation.color_palette.offset}
+        horizontalFill
+      />
       <Knob label={OSCILLATORS[mask.oscillator_track]} isToggled={mask.enabled}/>
-      <Knob label={"Subd. count"} value={slicer.slices_value} horizontalFill={true} isToggled={!slicer.enabled}/>
-      <Knob label="Feedback" value={feedback.value} isToggled={feedback.enabled} horizontalFill={true} />
-      <Knob label="Palette Width" value={modulation.color_palette.width} horizontalFill={true} isToggled={modulation.enabled}/>
-      <Knob label="Length" value={mask.length} horizontalFill={true} isToggled={mask.enabled}/>
-      <Knob label="Subd. length" value={slicer.uneven_value} horizontalFill={true} isToggled={slicer.enabled}/>
-      <Knob label="Timescale" value={timeScale} horizontalFill={true} isToggled/>
+      <Knob label={"Subd. count"} value={slicer.slices_value} horizontalFill isToggled={!slicer.enabled}/>
+      <Knob label="Feedback" value={feedback.value} isToggled={feedback.enabled} horizontalFill />
+      <Knob label="Palette Width" value={modulation.color_palette.width} horizontalFill isToggled={modulation.enabled}/>
+      <Knob label="Length" value={mask.length} horizontalFill isToggled={mask.enabled}/>
+      <Knob label="Subd. length" value={slicer.uneven_value} horizontalFill isToggled={slicer.enabled}/>
+      <Knob label="Timescale" value={timeScale} horizontalFill isToggled/>
     </div>
   );
 };

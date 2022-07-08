@@ -44,6 +44,7 @@ const GlobalInfos = ({ activeTrack, bpm }) => {
 };
 
 GlobalInfos.propTypes = {
+  activeTrack: PropTypes.shape().isRequired,
   bpm: PropTypes.number.isRequired
 };
 

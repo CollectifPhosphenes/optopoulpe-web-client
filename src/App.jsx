@@ -34,14 +34,14 @@ const App = () => {
   const dispatch = useDispatch();
   const theme = useSelector(state => state.app.theme);
 
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState('http://127.0.0.1:8069/parse');
 
   const handleThemeChange = () => dispatch(colorModeSwitch(theme === 'dark' ? 'light' : 'dark'));
   return (
     <div className={`${theme === 'dark' ? styles.darkMode : styles.lightMode} App`}>
       <div className={styles.modeBar}>
         <div>
-          <input onChange={e => setUrl(e.target.value)} type="text" value={url ? url : 'http://127.0.0.1:8069/parse'}/>
+          <input onChange={e => setUrl(e.target.value)} type="text" value={url}/>
           <button onClick={() => dispatch(changeUrl(url))}>▶️</button>
           <button onClick={() => dispatch(changeUrl(''))}>panic ⏹️</button>
         </div>

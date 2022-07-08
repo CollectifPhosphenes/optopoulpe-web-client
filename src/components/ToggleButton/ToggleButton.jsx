@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@mui/styles';
 
@@ -34,7 +34,11 @@ const useStyles = makeStyles({
 const ToggleButton = ({ isToggled, isOnMaster, isSelected, children }) => {
   const styles = useStyles();
   return (
-    <div className={`${isToggled ? styles.toggleButtonToggled : styles.toggleButtonUnToggled} ${isOnMaster ? styles.toggleButtonOnMaster : styles.toggleButtonNotOnMaster} ${isSelected ? styles.toggleButtonSelected : styles.toggleButtonNotSelected} ${styles.toggleButton}`}>
+    <div className={`
+      ${isToggled ? styles.toggleButtonToggled : styles.toggleButtonUnToggled} 
+      ${isOnMaster ? styles.toggleButtonOnMaster : styles.toggleButtonNotOnMaster} 
+      ${isSelected ? styles.toggleButtonSelected : styles.toggleButtonNotSelected} 
+      ${styles.toggleButton}`}>
       {children}
     </div>
   );
