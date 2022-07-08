@@ -75,14 +75,14 @@ const TrackBlock = ({
   const styles = useStyles();
   const [isGroupOne, isGroupTwo, isGroupThree] = groups;
 
-  const darkColor = isActive ? 'darkred' : 'darkgrey';
-  const lightColor = isActive ? 'palevioletred' : 'lightgrey';
-  const percentage = (sliderValue + 1) * (100 / 128);
-
   const isOnMaster = !!sliderValue && (isGroupOne || isGroupTwo || isGroupThree);
 
+  const darkColor = isActive ? 'darkred' : isOnMaster ? 'cornflowerblue' : 'darkgrey';
+  const lightColor = isActive ? 'palevioletred' : isOnMaster ? 'lightblue' : 'lightgrey';
+  const percentage = (sliderValue + 1) * (100 / 128);
+
   return (
-    <div className={styles.trackBlock} style={{background: `linear-gradient(to top, ${darkColor} ${percentage}%, ${lightColor} 0%)`, border: isOnMaster ? '4px solid lightblue' : '1px solid black'}}>
+    <div className={styles.trackBlock} style={{background: `linear-gradient(to top, ${darkColor} ${percentage}%, ${lightColor} 0%)`}}>
       <div className={styles.upperBlock}>
         {/* Modulation Row */}
         <div>
