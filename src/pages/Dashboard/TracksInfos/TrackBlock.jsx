@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     justifyContent: 'space-around',
     border: '1px solid black',
-    padding: '8px',
+    padding: '4px',
     width: '320px',
     position: 'relative'
   },
